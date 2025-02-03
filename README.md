@@ -1,6 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
+This is a boostrap boilerplate Next.js app.
 
 First, run the development server:
 
@@ -14,23 +12,11 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Argillite Monstropedia is a codex of AI-generated monsters inspired by classic monster-collection games like Pokémon. In the game, Argillite Tamers, tamers collect clay to mold into these creations. Each creature is uniquely designed based on AI-generated prompts and follows structured attributes:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Name
+Type (Elemental category)
+Move Set (4 unique abilities)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project aims to blend AI creativity with game-inspired mechanics to produce a diverse and interactive bestiary. It utilizes our proprietary monster generation used within the game; however, this will not be shared here - simply a project to display some of my frontend web-development skills!
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
