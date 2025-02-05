@@ -19,12 +19,10 @@ export default function SideNav({
 }: SideNavProps) {
   const [searchValue, setSearchValue] = useState("");
 
-  const filteredMonster = first50Monster.filter((ele: string, eleIndex: any) => {
-    return (
-      getFullMonstropediaNumber(eleIndex).includes(searchValue) ||
-      ele.toLowerCase().includes(searchValue.toLowerCase())
-    );
-  });
+  const filteredMonster = first50Monster.filter((ele: string, eleIndex: number) =>
+    getFullMonstropediaNumber(eleIndex).includes(searchValue) ||
+    ele.toLowerCase().includes(searchValue.toLowerCase())
+  );
 
   return (
     <nav className={classNames({ open: !showSideMenu })}>

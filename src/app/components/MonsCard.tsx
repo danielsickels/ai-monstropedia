@@ -10,17 +10,15 @@ interface MonsCardProps {
 }
 
 export default function MonsCard({ selectedMonster, disableFetch = false }: MonsCardProps) {
-  const [data, setData] = useState<any>(null);
-  const [skill, setSkill] = useState<any>(null);
+  const [data, setData] = useState<Record<string, any> | null>(null);
+  const [skill, setSkill] = useState<{ name: string; description: string } | null>(null);
 
   useEffect(() => {
     if (disableFetch) {
       setData({
-        name: "Bulbasaur",
+        name: "Monster1",
         types: [{ type: { name: "grass" } }, { type: { name: "poison" } }],
-        sprites: {
-          front_default: "/placeholder.png",
-        },
+        sprites: { front_default: "/placeholder.png" },
         stats: [
           { stat: { name: "hp" }, base_stat: 45 },
           { stat: { name: "attack" }, base_stat: 49 },
@@ -34,9 +32,7 @@ export default function MonsCard({ selectedMonster, disableFetch = false }: Mons
     }
   }, [disableFetch]);
 
-  if (!data) {
-    return <h4>Loading...</h4>;
-  }
+  if (!data) return <h4>Loading...</h4>;
 
   return (
     <div className="Mons-card">
@@ -51,24 +47,28 @@ export default function MonsCard({ selectedMonster, disableFetch = false }: Mons
       <h4>#{getFullMonstropediaNumber(selectedMonster)}</h4>
       <h2>{data.name}</h2>
       <div className="type-container">
-        {data.types.map((typeObj: any, typeIndex: number) => (
-          <TypeCard key={typeIndex} type={typeObj?.type?.name} />
+        {data.types.map((typeObj: { type: { name: string } }, typeIndex: number) => (
+          <TypeCard key={typeIndex} type={typeObj.type.name} />
         ))}
       </div>
       <Image className="default-img" src={data.sprites.front_default} alt={`${data.name}-img`} width={240} height={240} />
       <h3>Stats</h3>
       <div className="stats-card">
-        {data.stats.map((statObj: any, statIndex: number) => (
+        {data.stats.map((statObj: { stat: { name: string }; base_stat: number }, statIndex: number) => (
           <div key={statIndex} className="stat-item">
-            <p>{statObj.stat?.name.replaceAll("-", " ")}</p>
+            <p>{statObj.stat.name.replaceAll("-", " ")}</p>
             <h4>{statObj.base_stat}</h4>
           </div>
         ))}
       </div>
       <h3>Moves</h3>
       <div className="Monster-move-grid">
-        {data.moves.map((moveObj: any, moveIndex: number) => (
-          <button key={moveIndex} className="button-card Monster-move" onClick={() => setSkill({ name: moveObj.move.name, description: "No description available" })}>
+        {data.moves.map((moveObj: { move: { name: string } }, moveIndex: number) => (
+          <button
+            key={moveIndex}
+            className="button-card Monster-move"
+            onClick={() => setSkill({ name: moveObj.move.name, description: "No description available" })}
+          >
             <p>{moveObj.move.name.replaceAll("-", " ")}</p>
           </button>
         ))}

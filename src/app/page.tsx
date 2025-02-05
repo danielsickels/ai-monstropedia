@@ -13,7 +13,7 @@ export default function Home() {
   const handleCloseMenu = () => setShowSideMenu(false);
 
   return (
-    <div className="flex">
+    <div className="flex h-screen overflow-hidden">
       <div className="h-screen overflow-y-auto">
         <SideNav 
           selectedMonster={selectedMonster} 
@@ -22,7 +22,7 @@ export default function Home() {
           showSideMenu={showSideMenu} 
         />
       </div>
-      <div className="flex-1">
+      <div className="flex-1 min-w-0">
         <Header handleToggleMenu={handleToggleMenu} />
         <div className="flex justify-center items-center min-h-screen">
           <MonsCard selectedMonster={selectedMonster} />
